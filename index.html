@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page - Faccinetto's Recipes</title>
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/larger.css">
+        <link rel="stylesheet" href="styles/normalize.css">
+    </head>
+    <body>
+        <div class="hero">
+            <picture>
+                <source srcset="images/hero-home-page-small.webp" media="(max-width: 400px)">
+                <source srcset="images/hero-home-page-medium.webp" media="(max-width: 960px)">
+                <img src="images/hero-home-page-large.webp" alt="Meal" width="500" height="250" loading="lazy">
+            </picture>
+        </div>
+        <h1>Faccinetto's Recipes</h1>
+        <a id="menu" href="#"></a>
+        <nav>
+            <ul class="navigation">
+                <li><a href="">Recipes</a></li>
+                <li><a href="">Dinners</a></li>
+                <li><a href="">Ingredients</a></li>
+                <li><a href="">Search</a></li>
+                <li><a href="">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="grid-two-and-half">
+            <h2 class="spotlight">Spotlight</h2>
+            <div id="spotlightAdv"></div>
+    
+        </div>
+        
+        <script src="scripts/index.js"></script>
+        <script src="scripts/spotlight.js"></script>
+    </body>
+</html>

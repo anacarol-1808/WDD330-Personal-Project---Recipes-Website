@@ -1,0 +1,91 @@
+h1 {
+    font-family: 'Cinzel', serif;
+    margin-left: 0.8rem;
+    margin-top: 3.8rem;
+    font-size: 2rem;
+    color: black;
+}
+
+.hero picture {
+    width: 100%;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #272640;
+    text-align: center;
+    padding-left: 0px;
+}
+
+nav a {
+    display: block;
+    background-color: #272640;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+nav li{
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    margin: 0 auto;
+    color: white;
+}
+
+nav a:hover {
+    background-color: #852c85;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px){
+    #menu {
+        display: block;
+        font-size: 3rem;
+        font-weight:700;
+        text-decoration: none;
+        padding: .5rem .75rem;
+        background-color: #eee;
+        color: #144552;
+    }
+    
+    #menu::before {
+        content: "≡";
+    }
+    
+    nav {
+        background-color: #144552;
+    }
+    .navigation {
+        list-style: none;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+    
+    .navigation li {
+        display: none;
+    }
+    .navigation a {
+        display: block;
+    }
+    
+    .show li {
+        display: block;
+    }
+    
+    #menu.show::before {
+        content: "x";
+    }
+
+    
+}
+
