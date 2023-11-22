@@ -1,36 +1,78 @@
-// On the home page use your JSON data source of members to supply two to three 'spotlight' advertisements 
-// for the chamber members who have silver or gold membership levels only.
-// The home page should randomly load different, qualified members.
+// The home page should randomly load 3 different recipes to display
 
 
 const baseURL = "index.html";
-const linksURL = "data/members.json";
+const linksURLChicken = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=chicken";
+const linksURLBeef = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=beef";
+const linksURLPork = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=pork";
+const linksURLFish = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=fish";
+const linksURLVegan = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=vegan";
 
-const division = document.querySelector("#spotlightAdv");
+let dataChicken = '';
+let dataBeef = '';
+let dataPork = '';
+let dataFish = '';
+let dataVegan = '';
 
-async function getMembers() {
-    const response = await fetch(linksURL);
-    const data = await response.json();
-    getLenght(data);
-    displayMembers(data);
+async function getApiDataChicken() {
+    const response = await fetch(linksURLChicken);
+    dataChicken = await response.json();
+    console.log(dataChicken);
+    let food = 'chicken';
+    let lenghtChicken = dataChicken.totalResults;
+    displayRecipes(dataChicken, lenghtChicken, food);
 }
 
-getMembers();
+async function getApiDataBeef() {
+    const response = await fetch(linksURLBeef);
+    dataBeef = await response.json();
+    console.log(dataBeef);
+    let food = 'beef';
+    let lenghtBeef = dataBeef.totalResults;
+    displayRecipes(dataBeef, lenghtBeef, food);
+}
 
-let lenght = 0;
+async function getApiDataPork() {
+    const response = await fetch(linksURLPork);
+    dataPork = await response.json();
+    console.log(dataPork);
+    let food = 'pork';
+    let lenghtPork = dataPork.totalResults;
+    displayRecipes(dataPork, lenghtPork, food);
+}
 
-function getLenght(data) {
-    (data.members).forEach(item => {
-        lenght++;
-    });
-}   
+async function getApiDataFish() {
+    const response = await fetch(linksURLFish);
+    dataFish = await response.json();
+    console.log(dataFish);
+    let food = 'fish';
+    let lenghtFish = dataFish.totalResults;
+    displayRecipes(dataFish, lenghtFish, food);
+}
 
+async function getApiDataVegan() {
+    const response = await fetch(linksURLVegan);
+    dataVegan = await response.json();
+    console.log(dataVegan);
+    let food = 'vegan';
+    let lenghtVegan = dataVegan.totalResults;
+    displayRecipes(dataVegan, lenghtVegan, food);
+}
+
+getApiDataChicken();
+getApiDataBeef();
+getApiDataPork();
+getApiDataFish();
+getApiDataVegan();
 
 let index = 0;
 const arrayOfNumbers = [];
 
 
-function displayMembers(data) {
+function displayRecipes(data, lenght, food) {
+    let division = document.querySelector(`#spotlightAdv-${food}`);
+    console.log(data);
+    console.log(lenght);
     while (index < 3) {
         //getting random position 
         let number = Math.random() * (lenght-1);
@@ -39,30 +81,28 @@ function displayMembers(data) {
         let check = arrayOfNumbers.includes(numberRound, 0);
 
         if (check == false) {
-            if (data.members[numberRound].membership == 'gold' | data.members[numberRound].membership == 'silver') {
-                //Create needed elements
-                let heading = document.createElement('h3');
-                let paragraph = document.createElement('p');
-
-                // Give content to the elements
-                heading.textContent = `${data.members[numberRound].name}`;
-                paragraph.textContent = `${data.members[numberRound].spotlight}`;
-
-                //Append
-                division.appendChild(heading);
-                division.appendChild(paragraph);
-
-                //add Numberround to the array
-                arrayOfNumbers.push(numberRound);
-                index++;
-            }
             
-            else {
-                index = index;
-            }
+            let heading = document.createElement('h3');
+            let image = document.createElement('img');
+
+            // Give content to the elements
+            heading.textContent = `${data.results[index].title}`;
+            console.log(index);
+            console.log(data.results[index].title);
+            image.src = `${data.results[index].image}`;
+            image.alt = `${data.results[index].title}`;
+
+            //Append
+            division.appendChild(heading);
+            division.appendChild(image);
+
+            //add Numberround to the array
+            arrayOfNumbers.push(numberRound);
+            index++;            
         }
         else {
             index = index;
         }
     }
 }
+
