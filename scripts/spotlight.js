@@ -19,8 +19,7 @@ async function getApiDataChicken() {
     dataChicken = await response.json();
     console.log(dataChicken);
     let food = 'chicken';
-    let lenghtChicken = dataChicken.totalResults;
-    displayRecipes(dataChicken, lenghtChicken, food);
+    displayRecipes(dataChicken, 10, food);
 }
 
 async function getApiDataBeef() {
@@ -28,8 +27,7 @@ async function getApiDataBeef() {
     dataBeef = await response.json();
     console.log(dataBeef);
     let food = 'beef';
-    let lenghtBeef = dataBeef.totalResults;
-    displayRecipes(dataBeef, lenghtBeef, food);
+    displayRecipes(dataBeef, 10, food);
 }
 
 async function getApiDataPork() {
@@ -37,8 +35,7 @@ async function getApiDataPork() {
     dataPork = await response.json();
     console.log(dataPork);
     let food = 'pork';
-    let lenghtPork = dataPork.totalResults;
-    displayRecipes(dataPork, lenghtPork, food);
+    displayRecipes(dataPork, 10, food);
 }
 
 async function getApiDataFish() {
@@ -46,8 +43,7 @@ async function getApiDataFish() {
     dataFish = await response.json();
     console.log(dataFish);
     let food = 'fish';
-    let lenghtFish = dataFish.totalResults;
-    displayRecipes(dataFish, lenghtFish, food);
+    displayRecipes(dataFish, 10, food);
 }
 
 async function getApiDataVegan() {
@@ -55,8 +51,7 @@ async function getApiDataVegan() {
     dataVegan = await response.json();
     console.log(dataVegan);
     let food = 'vegan';
-    let lenghtVegan = dataVegan.totalResults;
-    displayRecipes(dataVegan, lenghtVegan, food);
+    displayRecipes(dataVegan, 10, food);
 }
 
 getApiDataChicken();
@@ -65,11 +60,11 @@ getApiDataPork();
 getApiDataFish();
 getApiDataVegan();
 
-let index = 0;
-const arrayOfNumbers = [];
 
 
 function displayRecipes(data, lenght, food) {
+    let index = 0;
+    const arrayOfNumbers = [];
     let division = document.querySelector(`#spotlightAdv-${food}`);
     console.log(data);
     console.log(lenght);
@@ -86,11 +81,11 @@ function displayRecipes(data, lenght, food) {
             let image = document.createElement('img');
 
             // Give content to the elements
-            heading.textContent = `${data.results[index].title}`;
-            console.log(index);
-            console.log(data.results[index].title);
-            image.src = `${data.results[index].image}`;
-            image.alt = `${data.results[index].title}`;
+            heading.textContent = `${data.results[numberRound].title}`;
+            console.log(numberRound);
+            console.log(data.results[numberRound].title);
+            image.src = `${data.results[numberRound].image}`;
+            image.alt = `${data.results[numberRound].title}`;
 
             //Append
             division.appendChild(heading);
@@ -105,4 +100,5 @@ function displayRecipes(data, lenght, food) {
         }
     }
 }
+
 
