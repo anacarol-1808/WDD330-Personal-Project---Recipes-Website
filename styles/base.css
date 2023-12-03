@@ -1,3 +1,7 @@
+/* Color Pallete: https://coolors.co/palette/264653-2a9d8f-e9c46a-f4a261-e76f51 */
+
+
+
 h1 {
     font-family: 'Cinzel', serif;
     margin-left: 0.8rem;
@@ -19,14 +23,14 @@ nav ul {
     list-style: none;
     align-items: center;
     margin: 0 auto;
-    background-color: #272640;
+    background-color: #264653;
     text-align: center;
     padding-left: 0px;
 }
 
 nav a {
     display: block;
-    background-color: #272640;
+    background-color: #264653;
     font-size: 1.5rem;
     padding: 1rem;
     text-decoration: none;
@@ -43,12 +47,34 @@ a {
 }
 
 nav a:hover {
-    background-color: #852c85;
+    background-color: #F4A261;
     text-align: center;
 }
 
 .search-container {
     padding: 10px;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #264653;
+    display: grid;
+    color: white;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img {
+    width: 50px;
+    margin: 1rem;
+    margin-bottom: 0;
+}
+
+footer p {
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
 }
 
 
@@ -61,7 +87,7 @@ nav a:hover {
         text-decoration: none;
         padding: .5rem .75rem;
         background-color: #eee;
-        color: #144552;
+        color: #264653;
     }
     
     #menu::before {
@@ -69,7 +95,7 @@ nav a:hover {
     }
     
     nav {
-        background-color: #144552;
+        background-color: #264653;
     }
     .navigation {
         list-style: none;

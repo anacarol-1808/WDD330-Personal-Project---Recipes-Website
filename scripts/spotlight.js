@@ -1,12 +1,13 @@
 // The home page should randomly load 3 different recipes to display
-
+// extra api keys: d1f70067f78248078e71a58983a18e5f (indiano)
+// db254b5cd61744d39a2deebd9c361444 (crianca)
 
 const baseURL = "index.html";
-const linksURLChicken = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=chicken";
-const linksURLBeef = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=beef";
-const linksURLPork = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=pork";
-const linksURLFish = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=fish";
-const linksURLVegan = "https://api.spoonacular.com/recipes/complexSearch?apiKey=d1f70067f78248078e71a58983a18e5f&query=vegan";
+const linksURLChicken = "https://api.spoonacular.com/recipes/complexSearch?apiKey=db254b5cd61744d39a2deebd9c361444&query=chicken&type=main course";
+const linksURLBeef = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=beef&type=main course";
+const linksURLPork = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=pork&type=main course";
+const linksURLFish = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=fish&type=main course";
+const linksURLVegan = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=vegan&type=main course";
 
 let dataChicken = '';
 let dataBeef = '';
@@ -78,18 +79,26 @@ function displayRecipes(data, lenght, food) {
         if (check == false) {
             
             let heading = document.createElement('h3');
+            let anchor = document.createElement('a')
             let image = document.createElement('img');
 
             // Give content to the elements
             heading.textContent = `${data.results[numberRound].title}`;
             console.log(numberRound);
             console.log(data.results[numberRound].title);
+            let id = `${data.results[numberRound].id}`;
+            anchor.href =  `https://api.spoonacular.com/recipes/${id}/information?apiKey=db254b5cd61744d39a2deebd9c361444`;
             image.src = `${data.results[numberRound].image}`;
             image.alt = `${data.results[numberRound].title}`;
 
             //Append
-            division.appendChild(heading);
-            division.appendChild(image);
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+            gridItem.appendChild(heading);
+            gridItem.appendChild(anchor);
+            anchor.appendChild(image);
+
+            division.appendChild(gridItem);
 
             //add Numberround to the array
             arrayOfNumbers.push(numberRound);
