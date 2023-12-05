@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page - Faccinetto's Recipes</title>
+        <title>Recipe Page - Faccinetto's Recipes</title>
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/larger.css">
         <link rel="stylesheet" href="styles/normalize.css">
@@ -28,30 +28,18 @@
             </ul>
         </nav>
         
-        <div>
-            <h2>Your dinner can be found here</h2>
-        </div>
-
         <div class="search-container">
             <input type="text" id="myText">
             <button onclick="getQueryValue()">Search</button>
         </div>  
-        <div class="grid-container">
-            <h2>Chicken</h2>
-            <div class="grid-food" id="spotlightAdv-chicken">
-            </div>
-        
-            <h2>Beef</h2>
-            <div class="grid-food" id="spotlightAdv-beef">
-            </div>
-            
-            <h2>Pork</h2>
-            <div class="grid-food" id="spotlightAdv-pork">
-            </div>
-        
-            <h2>Vegan</h2>
-            <div class="grid-food" id="spotlightAdv-vegan">
-            </div>
+
+        <div class="recipe-container">
+           <div class="recipe-title-description"></div>
+           <div class="recipe-image"></div>
+           <div class="recipe-details"></div>
+           <div class="recipe-ingredients"></div>
+           <div class="recipe-directions"></div>
+           <div class="nutrition-facts"></div>
         </div>
         <footer>
             <p>
@@ -74,7 +62,7 @@
 
         <script src="scripts/index.js"></script>
         <script src="scripts/getDates.js"></script>
-        <script src="scripts/spotlight.js"></script>
+        <script src="scripts/recipe.js"></script>
         <!-- <script src="scripts/spoonacular.js"></script> -->
     </body>
 </html>

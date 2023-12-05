@@ -56,10 +56,10 @@ async function getApiDataVegan() {
 }
 
 getApiDataChicken();
-getApiDataBeef();
-getApiDataPork();
-getApiDataFish();
-getApiDataVegan();
+// getApiDataBeef();
+// getApiDataPork();
+// getApiDataFish();
+// getApiDataVegan();
 
 
 
@@ -74,7 +74,7 @@ function displayRecipes(data, lenght, food) {
         let number = Math.random() * (lenght-1);
         let numberRound = Math.round(number);
 
-        let check = arrayOfNumbers.includes(numberRound, 0);
+        let check = arrayOfNumbers.includes(numberRound);
 
         if (check == false) {
             
@@ -87,7 +87,10 @@ function displayRecipes(data, lenght, food) {
             console.log(numberRound);
             console.log(data.results[numberRound].title);
             let id = `${data.results[numberRound].id}`;
-            anchor.href =  `https://api.spoonacular.com/recipes/${id}/information?apiKey=db254b5cd61744d39a2deebd9c361444`;
+            anchor.href =  "recipe.html";
+            anchor.addEventListener('click', function() {
+                localStorage.setItem('selectedRecipeId', id);
+            });
             image.src = `${data.results[numberRound].image}`;
             image.alt = `${data.results[numberRound].title}`;
 
