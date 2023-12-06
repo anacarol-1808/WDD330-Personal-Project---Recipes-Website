@@ -3,11 +3,11 @@
 // db254b5cd61744d39a2deebd9c361444 (crianca)
 
 const baseURL = "index.html";
-const linksURLChicken = "https://api.spoonacular.com/recipes/complexSearch?apiKey=db254b5cd61744d39a2deebd9c361444&query=chicken&type=main course";
-const linksURLBeef = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=beef&type=main course";
-const linksURLPork = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=pork&type=main course";
-const linksURLFish = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=fish&type=main course";
-const linksURLVegan = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=vegan&type=main course";
+const linksURLChicken = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=chicken&type=main course&number=50";
+const linksURLBeef = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=beef&type=main course&number=50";
+const linksURLPork = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=pork&type=main course&number=50";
+const linksURLFish = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=fish&type=main course&number=50";
+const linksURLVegan = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=vegan&type=main course&number=50";
 
 let dataChicken = '';
 let dataBeef = '';
@@ -20,7 +20,7 @@ async function getApiDataChicken() {
     dataChicken = await response.json();
     console.log(dataChicken);
     let food = 'chicken';
-    displayRecipes(dataChicken, 10, food);
+    displayRecipes(dataChicken, 50, food);
 }
 
 async function getApiDataBeef() {
@@ -28,7 +28,7 @@ async function getApiDataBeef() {
     dataBeef = await response.json();
     console.log(dataBeef);
     let food = 'beef';
-    displayRecipes(dataBeef, 10, food);
+    displayRecipes(dataBeef, 50, food);
 }
 
 async function getApiDataPork() {
@@ -36,7 +36,7 @@ async function getApiDataPork() {
     dataPork = await response.json();
     console.log(dataPork);
     let food = 'pork';
-    displayRecipes(dataPork, 10, food);
+    displayRecipes(dataPork, 50, food);
 }
 
 async function getApiDataFish() {
@@ -44,7 +44,7 @@ async function getApiDataFish() {
     dataFish = await response.json();
     console.log(dataFish);
     let food = 'fish';
-    displayRecipes(dataFish, 10, food);
+    displayRecipes(dataFish, 50, food);
 }
 
 async function getApiDataVegan() {
@@ -52,7 +52,7 @@ async function getApiDataVegan() {
     dataVegan = await response.json();
     console.log(dataVegan);
     let food = 'vegan';
-    displayRecipes(dataVegan, 10, food);
+    displayRecipes(dataVegan, 50, food);
 }
 
 getApiDataChicken();

@@ -7,63 +7,78 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Retrieve the id from localStorage
     const selectedRecipeId = localStorage.getItem('selectedRecipeId');
-    console.log('This is the recipe ID: ' + selectedRecipeId)
-    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?apiKey=db254b5cd61744d39a2deebd9c361444`;
-    
+    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541`;
+    let recipeData = '';
+
     // Check if the id is present
     if (selectedRecipeId) {
-        async function getApiDataRecipe() {
+        async function getApiRecipeData() {
             const response = await fetch(baseURL);
-            dataRecipe = await response.json();
-            console.log(dataRecipe);
+            recipeData = await response.json();
+            console.log(recipeData);
+            renderRecipe(recipeData);
         }
-        getApiDataRecipe();
-        // Clear the stored id from localStorage (optional)
+        getApiRecipeData();
+
+        function renderRecipe(recipeData){
         
+            // Get the container element
+            const recipeContainer = document.getElementById('recipeContainer');
+
+            // Create HTML elements and insert data
+
+            // Title
+            
+            const titleElement = document.createElement('h1');
+            console.log(recipeData.title);
+            titleElement.innerHTML = recipeData.title;
+            console.log(titleElement);
+            recipeContainer.appendChild(titleElement);
+
+            // Sumary
+            const summaryElement = document.createElement('p');
+            summaryElement.innerHTML = recipeData.summary;
+            recipeContainer.appendChild(summaryElement);
+
+            // Image
+            const imageElement = document.createElement('img');
+            imageElement.src = recipeData.image;
+            imageElement.alt = recipeData.title;
+            recipeContainer.appendChild(imageElement);
+
+            // Ingredients
+            const ingredientsTitle = document.createElement('h2');
+            ingredientsTitle.innerHTML = 'Ingredients';
+            recipeContainer.appendChild(ingredientsTitle);
+            const ingredientsElement = document.createElement('ul');
+            recipeData.extendedIngredients.forEach(ingredient => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${ingredient.original}`;
+                ingredientsElement.appendChild(listItem);
+            });
+            recipeContainer.appendChild(ingredientsElement);
+
+            // Instructions
+            if (recipeData.analyzedInstructions.length) {
+                const instructionsTitle = document.createElement('h2');
+                instructionsTitle.innerHTML = 'How to Prepare';
+                recipeContainer.appendChild(instructionsTitle); 
+            }
+            
+            const instructionsElement = document.createElement('ul');
+            recipeData.analyzedInstructions[0].steps.forEach(step => {
+                const stepItem = document.createElement('li');
+                stepItem.innerHTML = `${step.number}. ${step.step}`;
+                instructionsElement.appendChild(stepItem);
+            })
+            recipeContainer.appendChild(instructionsElement);
+        }
+           
     } else {
         console.warn('No selected recipe id found in localStorage.');
     }
-    localStorage.removeItem('selectedRecipeId');
 
 });
 
 
-
-
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     const apiUrl = 'https://api.spoonacular.com/recipes/638308/information?apiKey=db254b5cd61744d39a2deebd9c361444';
-
-//     // Fetch data from the API
-//     fetch(apiUrl)
-//         .then(response => response.json())
-//         .then(recipeData => {
-//             // Get the container element
-//             const recipeContainer = document.getElementById('recipe-container');
-
-//             // Create HTML elements and insert data
-//             const titleElement = document.createElement('h1');
-//             titleElement.textContent = recipeData.title;
-//             recipeContainer.appendChild(titleElement);
-
-//             const imageElement = document.createElement('img');
-//             imageElement.src = recipeData.image;
-//             imageElement.alt = recipeData.title;
-//             recipeContainer.appendChild(imageElement);
-
-//             // Add more elements as needed (ingredients, instructions, etc.)
-//             // Example:
-//             const ingredientsElement = document.createElement('ul');
-//             recipeData.extendedIngredients.forEach(ingredient => {
-//                 const listItem = document.createElement('li');
-//                 listItem.textContent = `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`;
-//                 ingredientsElement.appendChild(listItem);
-//             });
-//             recipeContainer.appendChild(ingredientsElement);
-
-//             // Add other recipe information...
-//         })
-//         .catch(error => console.error('Error fetching data:', error));
-// });
 
