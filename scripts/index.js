@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     async function getMainCourseData(query) {
+        console.log(query);
         const response = await fetch(mainCourseURL);
         mainCourseData = await response.json();
         console.log(mainCourseData);
