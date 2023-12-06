@@ -2,7 +2,6 @@
 // extra api keys: d1f70067f78248078e71a58983a18e5f (indiano)
 // db254b5cd61744d39a2deebd9c361444 (crianca)
 
-const baseURL = "index.html";
 const linksURLChicken = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=chicken&type=main course&number=50";
 const linksURLBeef = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=beef&type=main course&number=50";
 const linksURLPork = "https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=pork&type=main course&number=50";
