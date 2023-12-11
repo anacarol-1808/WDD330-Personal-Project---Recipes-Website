@@ -1,13 +1,14 @@
 // The home page should load one main recipe related to the season
 // extra api keys: d1f70067f78248078e71a58983a18e5f (indiano)
-// db254b5cd61744d39a2deebd9c361444 (child)
+// 320786665a194e83b2a064d5eab24ea6 (child)
 // ebbf86dcedb34f56b0926b2a5bfd0541 (my key)
+// 320786665a194e83b2a064d5eab24ea6 (gmail key)
 
 
 document.addEventListener('DOMContentLoaded', function() {
     let query = '';
-    const mainCourseURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=db254b5cd61744d39a2deebd9c361444&query=${query}&type=main course&number=100`;
-    const dessertURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=db254b5cd61744d39a2deebd9c361444&query=${query}&type=dessert&number=100`
+    const mainCourseURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=320786665a194e83b2a064d5eab24ea6&query=${query}&type=main course&number=100`;
+    const dessertURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=320786665a194e83b2a064d5eab24ea6&query=${query}&type=dessert&number=100`
 
     let mainCourseData = '';
     let dessertData = '';
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getRecipeID(data, type){
         let randomNumber = Math.floor(Math.random() * 100);
         let id = data.results[randomNumber].id;
-        let recipeInfoURL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=db254b5cd61744d39a2deebd9c361444`;
+        let recipeInfoURL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=320786665a194e83b2a064d5eab24ea6`;
         getRecipeData(recipeInfoURL, type);
     }
 
