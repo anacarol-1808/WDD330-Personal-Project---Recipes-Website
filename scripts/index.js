@@ -6,8 +6,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     let query = '';
-    const mainCourseURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=${query}&type=main course`;
-    const dessertURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=ebbf86dcedb34f56b0926b2a5bfd0541&query=${query}&type=dessert`
+    const mainCourseURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=db254b5cd61744d39a2deebd9c361444&query=${query}&type=main course&number=100`;
+    const dessertURL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=db254b5cd61744d39a2deebd9c361444&query=${query}&type=dessert&number=100`
 
     let mainCourseData = '';
     let dessertData = '';
@@ -56,28 +56,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    let type = '';
+
     async function getMainCourseData(query) {
         console.log(query);
         const response = await fetch(mainCourseURL);
         mainCourseData = await response.json();
         console.log(mainCourseData);
-        renderMainCourse(mainCourseData);
+        let type = 'main';
+        getRecipeID(mainCourseData, type);
     }
 
-    // async function getDessertData(query) {
-    //     const response = await fetch(dessertURL);
-    //     dessertData = await response.json();
-    //     console.log(dessertData);
-    //     renderDessert(dessertData);
-    // }
+    async function getDessertData(query) {
+        console.log(query);
+        const response = await fetch(dessertURL);
+        dessertData = await response.json();
+        console.log(dessertData);
+        let type = 'dessert';
+        getRecipeID(dessertData, type);
+    }
+
     getMainCourseData(query);
-    //getDesertData(query);
-
-    function renderMainCourse(data){
+    getDessertData(query);
     
-        // Get the container element
-        const recipeContainer = document.getElementById('mainContainer');
 
+    function getRecipeID(data, type){
+        let randomNumber = Math.floor(Math.random() * 100);
+        let id = data.results[randomNumber].id;
+        let recipeInfoURL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=db254b5cd61744d39a2deebd9c361444`;
+        getRecipeData(recipeInfoURL, type);
+    }
+
+    async function getRecipeData(url, type) {
+        const response = await fetch(url);
+        recipeData = await response.json();
+        console.log(recipeData);
+        choseContainer(recipeData, type);
+    }
+
+    function choseContainer(data, type){
+        
+        let containerName = '';
+        
+        if (type == 'main'){
+            containerName =  'mainContainer-mainCourse';
+            renderRecipe(data, containerName);
+        }
+        else if (type = 'dessert'){
+            containerName = 'mainContainer-dessert';
+            renderRecipe(data, containerName);
+        }
+    }
+
+    function renderRecipe(data, containerName){
+        // Get the container element
+        recipeContainer = document.getElementById(containerName);
         // Create HTML elements and insert data
 
         // Title
@@ -126,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         recipeContainer.appendChild(instructionsElement);
     }
-           
 
 });
 
