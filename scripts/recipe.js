@@ -8,81 +8,78 @@
 // 0461f9f6ce4c4b5297e8c6394e5309fa (mafran)
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Retrieve the id from localStorage
-    const selectedRecipeId = localStorage.getItem('selectedRecipeId');
-    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?apiKey=90cc90ac2d314d10b1f9d3cf850cd540`;
-    let recipeData = '';
-
-    // Check if the id is present
-    if (selectedRecipeId) {
-        async function getApiRecipeData() {
-            const response = await fetch(baseURL);
-            recipeData = await response.json();
-            console.log(recipeData);
-            renderRecipe(recipeData);
-        }
-        getApiRecipeData();
-
-        function renderRecipe(recipeData){
-        
-            // Get the container element
-            const recipeContainer = document.getElementById('recipeContainer');
-
-            // Create HTML elements and insert data
-
-            // Title
-            
-            const titleElement = document.createElement('h1');
-            console.log(recipeData.title);
-            titleElement.innerHTML = recipeData.title;
-            console.log(titleElement);
-            recipeContainer.appendChild(titleElement);
-
-            // Sumary
-            const summaryElement = document.createElement('p');
-            summaryElement.innerHTML = recipeData.summary;
-            recipeContainer.appendChild(summaryElement);
-
-            // Image
-            const imageElement = document.createElement('img');
-            imageElement.src = recipeData.image;
-            imageElement.alt = recipeData.title;
-            recipeContainer.appendChild(imageElement);
-
-            // Ingredients
-            const ingredientsTitle = document.createElement('h2');
-            ingredientsTitle.innerHTML = 'Ingredients';
-            recipeContainer.appendChild(ingredientsTitle);
-            const ingredientsElement = document.createElement('ul');
-            recipeData.extendedIngredients.forEach(ingredient => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `${ingredient.original}`;
-                ingredientsElement.appendChild(listItem);
-            });
-            recipeContainer.appendChild(ingredientsElement);
-
-            // Instructions
-            if (recipeData.analyzedInstructions.length) {
-                const instructionsTitle = document.createElement('h2');
-                instructionsTitle.innerHTML = 'How to Prepare';
-                recipeContainer.appendChild(instructionsTitle); 
-            }
-            
-            const instructionsElement = document.createElement('ul');
-            recipeData.analyzedInstructions[0].steps.forEach(step => {
-                const stepItem = document.createElement('li');
-                stepItem.innerHTML = `${step.number}. ${step.step}`;
-                instructionsElement.appendChild(stepItem);
-            })
-            recipeContainer.appendChild(instructionsElement);
-        }
-           
-    } else {
-        console.warn('No selected recipe id found in localStorage.');
+let type = '';
+const apiKey = '90cc90ac2d314d10b1f9d3cf850cd540';
+const apiUrl_one = 'https://api.spoonacular.com/recipes/complexSearch';
+    
+async function getApiData(type) {
+    const url = `${apiUrl_one}?apiKey=${apiKey}&type=${type}&number=100`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data.number);
+    let lenght = 0;
+    if (data.number > data.totalResults){
+        lenght = data.totalResults;
     }
+    else if (data.totalResults > data.number){
+        lenght = data.number;
+    }
+    displayRecipes(data, lenght, type);
+}
 
-});
+
+function displayRecipes(data, lenght, type) {
+    let index = 0;
+    const arrayOfNumbers = [];
+    let container = document.getElementById('recipeContainer');
+    console.log(data);
+
+    while (index < 3) {
+        //getting random position 
+        let number = Math.random() * (lenght-1);
+        let numberRound = Math.round(number);
+
+        let check = arrayOfNumbers.includes(numberRound);
+
+        if (check == false) {
+            
+            let heading = document.createElement('h2');
+            let title_one = document.createElement('h3');
+            let anchor = document.createElement('a')
+            let image = document.createElement('img');
+
+            // Give content to the elements
+            title_one.textContent = `${data.results[numberRound].title}`;
+            console.log(numberRound);
+            console.log(data.results[numberRound].title);
+            let id = `${data.results[numberRound].id}`;
+            anchor.href =  "recipeRender.html";
+            anchor.addEventListener('click', function() {
+                localStorage.setItem('selectedRecipeId', id);
+            });
+            image.src = `${data.results[numberRound].image}`;
+            image.alt = `${data.results[numberRound].title}`;
+
+            //Append
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+            gridItem.appendChild(heading);
+            gridItem.appendChild(title_one);
+            gridItem.appendChild(anchor);
+            anchor.appendChild(image);
+
+            container.appendChild(gridItem);
+
+            //add Numberround to the array
+            arrayOfNumbers.push(numberRound);
+            index++;            
+        }
+        else {
+            index = index;
+        }
+    }
+}
+
 
 
 

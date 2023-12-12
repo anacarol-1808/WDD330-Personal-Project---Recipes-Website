@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page - Faccinetto's Recipes</title>
+        <title>Recipe Page - Faccinetto's Recipes</title>
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/larger.css">
         <link rel="stylesheet" href="styles/normalize.css">
@@ -30,16 +30,12 @@
             </ul>
         </nav>
         
-        <div class="initial-message">
-            <h2>This is our suggestion for the day! Enjoy!</h2>
-        </div>
+        <div class="search-container">
+            <input type="text" id="myText">
+            <button onclick="getQueryValue()">Search</button>
+        </div>  
 
-        <div id="mainContainer-mainCourse">
-            <h2>Main Course...</h2>
-        </div>
-
-        <div id="mainContainer-dessert">
-            <h2>And, dessert, of course...</h2>
+        <div id="recipeContainer">
         </div>
         <footer>
             <p>
@@ -62,6 +58,7 @@
 
         <script src="scripts/menu.js"></script>
         <script src="scripts/getDates.js"></script>
-        <!-- <script src="scripts/index.js"></script> -->
+        <script src="scripts/recipeRender.js"></script>
+        <script src="scripts/search.js"></script>
     </body>
 </html>

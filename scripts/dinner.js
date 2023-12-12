@@ -91,7 +91,7 @@ function displayRecipes(data, lenght, food) {
             console.log(numberRound);
             console.log(data.results[numberRound].title);
             let id = `${data.results[numberRound].id}`;
-            anchor.href =  "recipe.html";
+            anchor.href =  "recipeRender.html";
             anchor.addEventListener('click', function() {
                 localStorage.setItem('selectedRecipeId', id);
             });
