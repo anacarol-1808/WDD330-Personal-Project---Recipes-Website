@@ -31,7 +31,7 @@ async function getApiData(type) {
 function displayRecipes(data, lenght, type) {
     let index = 0;
     const arrayOfNumbers = [];
-    let container = document.getElementById('recipeContainer');
+    let container = document.getElementById(type);
     console.log(data);
 
     while (index < 3) {

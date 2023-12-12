@@ -75,6 +75,7 @@ footer p {
     margin-bottom: 20px;
     text-align: center;
     align-items: center;
+    color: white;
 }
 
 #recipesList-container a, p, h1, h2, h3, h4{
