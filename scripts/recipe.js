@@ -1,14 +1,17 @@
 // The home page should randomly load 3 different recipes to display
-// extra api keys: d1f70067f78248078e71a58983a18e5f (indiano)
+// d1f70067f78248078e71a58983a18e5f (indiano) -- using this one
 // db254b5cd61744d39a2deebd9c361444 (child)
-// 320786665a194e83b2a064d5eab24ea6 (my key)
+// ebbf86dcedb34f56b0926b2a5bfd0541 (my key)
 // 320786665a194e83b2a064d5eab24ea6 (gmail key)
+// efefa91814cb4d3a92ea12c310f20072 (gui)
+// 90cc90ac2d314d10b1f9d3cf850cd540 (mafo) -- using this one
+// 0461f9f6ce4c4b5297e8c6394e5309fa (mafran)
 
 
 document.addEventListener('DOMContentLoaded', function() {
     // Retrieve the id from localStorage
     const selectedRecipeId = localStorage.getItem('selectedRecipeId');
-    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?apiKey=320786665a194e83b2a064d5eab24ea6`;
+    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?apiKey=90cc90ac2d314d10b1f9d3cf850cd540`;
     let recipeData = '';
 
     // Check if the id is present
