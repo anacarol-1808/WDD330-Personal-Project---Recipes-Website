@@ -25,20 +25,18 @@
             <ul class="navigation">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="recipe.html">Recipes</a></li>
-                <li><a href="dinner.html">Dinners</a></li>
+                <li class="active"><a href="dinner.html">Dinners</a></li>
+                <li><a href="meal.html">Meals</a></li>
                 <li><a href="ingredients.html">Ingredients</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
         
         <div>
-            <h2>Your dinner can be found here</h2>
+            <h2>Here you can find random sugestions for your dinner. And you can search for more options by clicking <a href="recipe.html" id="hyperLink">here</a>.</h2>
         </div>
 
-        <div class="search-container">
-            <input type="text" id="myText">
-            <button onclick="getQueryValue()">Search</button>
-        </div>  
+        <h3>Click on the ones you like most for more detailed information:</h3>
         <div class="grid-container">
             <h2>Chicken</h2>
             <div class="grid-food" id="spotlightAdv-chicken">
@@ -78,6 +76,5 @@
         <script src="scripts/menu.js"></script>
         <script src="scripts/getDates.js"></script>
         <script src="scripts/dinner.js"></script>
-        <script src="scripts/search.js"></script>
     </body>
 </html>

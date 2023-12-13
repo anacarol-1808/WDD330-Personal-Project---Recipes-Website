@@ -82,6 +82,23 @@ footer p {
     color: black;
 }
 
+body {
+    padding: 30px;
+}
+
+#hyperLink {
+    color: rgb(28, 31, 201);
+    text-decoration: underline;
+}
+
+.active a {
+    background-color: #E9C46A;
+    color: #264653;
+}
+
+p {
+    font-size: 20px;
+}
 
 
 @media screen and (max-width: 700px){
@@ -121,6 +138,11 @@ footer p {
     
     #menu.show::before {
         content: "x";
+    }
+
+    img {
+        width: 100%;
+        height: auto;
     }
 
     

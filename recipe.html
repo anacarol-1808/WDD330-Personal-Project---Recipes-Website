@@ -23,48 +23,24 @@
         <nav>
             <ul class="navigation">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="recipe.html">Recipes</a></li>
+                <li class="active"><a href="recipe.html">Recipes</a></li>
                 <li><a href="dinner.html">Dinners</a></li>
+                <li><a href="meal.html">Meals</a></li>
                 <li><a href="ingredients.html">Ingredients</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
         
+        <h3>Use the search bar to type recipes that you are looking for. For example: 'lasagna', 'casserole', 'apple pie' or 'banana muffin'.</h3>
         <div class="search-container">
             <input type="text" id="myText">
             <button onclick="getQueryValue()">Search</button>
         </div>  
-
-        <div class="grid-container">
-            <h2>Here you can find some ideas for each meal of the day...</h2>
-            <h2>Breakfast</h2>
-            <button onclick="getApiData('breakfast')">Get Breakfast Ideas</button>
-            <div id="breakfast" class="grid-food"></div>
-            <h2>Side Dishes</h2>
-            <button onclick="getApiData('side dish')">Get Side Dish Ideas</button>
-            <div id="side dish" class="grid-food"></div>
-            <h2>Fingerfoods</h2>
-            <button onclick="getApiData('fingerfood')">Get Fingerfood Ideas</button>
-            <div id="fingerfood" class="grid-food"></div>
-            <h2>Snacks</h2>
-            <button onclick="getApiData('snack')">Get Snack Ideas</button>
-            <div id="snack" class="grid-food"></div>
-            <h2>Salads</h2>
-            <button onclick="getApiData('salad')">Get Salad Ideas</button>
-            <div id="salad" class="grid-food"></div>
-            <h2>Soups</h2>
-            <button onclick="getApiData('soup')">Get Soup Ideas</button>
-            <div id="soup" class="grid-food"></div>
-            <h2>Breads</h2>
-            <button onclick="getApiData('bread')">Get Bread Ideas</button>
-            <div id="bread" class="grid-food"></div>
-            <h2>Drinks</h2>
-            <button onclick="getApiData('drink')">Get Drink Ideas</button>
-            <div id="drink" class="grid-food"></div>
-            <h2>Desserts</h2>
-            <button onclick="getApiData('dessert')">Get Dessert Ideas</button>
-            <div id="dessert" class="grid-food"></div>
+        <div id="recipesList-container">
+            <h2>This is the search list, click on the one you like most, to see details:</h2>
+            <div id="grid-food"></div>
         </div>
+
         <footer>
             <p>
                 Address: Rua Umdoistres, 123
@@ -86,7 +62,6 @@
 
         <script src="scripts/menu.js"></script>
         <script src="scripts/getDates.js"></script>
-        <script src="scripts/recipe.js"></script>
         <script src="scripts/search.js"></script>
     </body>
 </html>
