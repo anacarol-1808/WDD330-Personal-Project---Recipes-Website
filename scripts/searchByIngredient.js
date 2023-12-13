@@ -16,7 +16,7 @@ function getQueryValue() {
 
 function getApiRecipeData(query){
 
-  const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=0461f9f6ce4c4b5297e8c6394e5309fa&ingredients=${query}&number=50`;
+  const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=0461f9f6ce4c4b5297e8c6394e5309fa&ingredients=${query}&number=500`;
   // Make a GET request to the API
   fetch(apiUrl)
   .then(response => {
@@ -41,16 +41,16 @@ function getApiRecipeData(query){
 
 
 function displayRecipesList (data) {
-  const recipeContainer = document.getElementById('recipesList-container');
+  const recipeContainer = document.querySelector('.grid-food');
   recipeContainer.innerHTML = '';
 
   data.forEach(recipe => {
-
+    
     // anchor
     let anchor = document.createElement('a');
 
     //title
-    let titleContent = document.createElement('p');
+    let titleContent = document.createElement('h2');
     titleContent.innerHTML = recipe.title;
 
     //image
@@ -61,7 +61,7 @@ function displayRecipesList (data) {
     // open the recipes page when the user clicks on the link
     console.log(recipe.id);
     let id = recipe.id;
-    anchor.href =  "recipe.html";
+    anchor.href =  "recipeRender.html";
     anchor.addEventListener('click', function() {
         localStorage.setItem('selectedRecipeId', id);
     });
