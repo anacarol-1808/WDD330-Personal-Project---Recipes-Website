@@ -121,7 +121,7 @@ function displayRecipes(data, lenght, food) {
     let division = document.querySelector(`#spotlightAdv-${food}`);
     console.log(data);
     console.log(lenght);
-    while (index < 3) {
+    while (index < 6) {
         //getting random position 
         let number = Math.random() * (lenght-1);
         let numberRound = Math.round(number);
