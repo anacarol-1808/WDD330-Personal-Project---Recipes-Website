@@ -40,10 +40,14 @@ nav li{
     display: block;
 }
 
-a {
+nav a {
     text-decoration: none;
     margin: 0 auto;
     color: white;
+}
+
+a {
+    color: black;
 }
 
 nav a:hover {
@@ -96,9 +100,11 @@ body {
     color: #264653;
 }
 
-p {
-    font-size: 20px;
+p, li {
+    font-size: 18px;
 }
+
+
 
 
 @media screen and (max-width: 700px){

@@ -8,13 +8,13 @@
 // 896979189fea41dfa19af91f1e970c01 (sabrine)
 // 40a9caa5188547d2a29f1a25a33f0b79 (thomas)
 
-const APIkey = '40a9caa5188547d2a29f1a25a33f0b79';
+const APIkey = 'd1f70067f78248078e71a58983a18e5f';
 
-const linksURLChicken = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=chicken&type=main course&number=50`;
-const linksURLBeef = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=beef&type=main course&number=50`;
-const linksURLPork = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=pork&type=main course&number=50`;
-const linksURLFish = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=fish&type=main course&number=50`;
-const linksURLVegan = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=vegan&type=main course&number=50`;
+const linksURLChicken = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=chicken&type=main course&number=500`;
+const linksURLBeef = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=beef&type=main course&number=500`;
+const linksURLPork = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=pork&type=main course&number=500`;
+const linksURLFish = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=fish&type=main course&number=500`;
+const linksURLVegan = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=vegan&type=main course&number=500`;
 
 let dataChicken = '';
 let dataBeef = '';
@@ -27,7 +27,15 @@ async function getApiDataChicken() {
     dataChicken = await response.json();
     console.log(dataChicken);
     let food = 'chicken';
-    displayRecipes(dataChicken, 50, food);
+    let lenght = 0;
+    if (dataChicken.number > dataChicken.totalResults){
+        lenght = dataChicken.totalResults;
+    }
+    else if (dataChicken.totalResults > dataChicken.number){
+        lenght = dataChicken.number;
+    }
+    console.log(lenght);
+    displayRecipes(dataChicken, lenght, food);
 }
 
 async function getApiDataBeef() {
@@ -35,7 +43,15 @@ async function getApiDataBeef() {
     dataBeef = await response.json();
     console.log(dataBeef);
     let food = 'beef';
-    displayRecipes(dataBeef, 50, food);
+    let lenght = 0;
+    if (dataBeef.number > dataBeef.totalResults){
+        lenght = dataBeef.totalResults;
+    }
+    else if (dataBeef.totalResults > dataBeef.number){
+        lenght = dataBeef.number;
+    }
+    console.log(lenght);
+    displayRecipes(dataBeef, lenght, food);
 }
 
 async function getApiDataPork() {
@@ -43,7 +59,15 @@ async function getApiDataPork() {
     dataPork = await response.json();
     console.log(dataPork);
     let food = 'pork';
-    displayRecipes(dataPork, 50, food);
+    let lenght = 0;
+    if (dataPork.number > dataPork.totalResults){
+        lenght = dataPork.totalResults;
+    }
+    else if (dataPork.totalResults > dataPork.number){
+        lenght = dataPork.number;
+    }
+    console.log(lenght);
+    displayRecipes(dataPork, lenght, food);
 }
 
 async function getApiDataFish() {
@@ -51,7 +75,15 @@ async function getApiDataFish() {
     dataFish = await response.json();
     console.log(dataFish);
     let food = 'fish';
-    displayRecipes(dataFish, 50, food);
+    let lenght = 0;
+    if (dataFish.number > dataFish.totalResults){
+        lenght = dataFish.totalResults;
+    }
+    else if (dataFish.totalResults > dataFish.number){
+        lenght = dataFish.number;
+    }
+    console.log(lenght);
+    displayRecipes(dataFish, lenght, food);
 }
 
 async function getApiDataVegan() {
@@ -59,7 +91,15 @@ async function getApiDataVegan() {
     dataVegan = await response.json();
     console.log(dataVegan);
     let food = 'vegan';
-    displayRecipes(dataVegan, 50, food);
+    let lenght = 0;
+    if (dataVegan.number > dataVegan.totalResults){
+        lenght = dataVegan.totalResults;
+    }
+    else if (dataVegan.totalResults > dataVegan.number){
+        lenght = dataVegan.number;
+    }
+    console.log(lenght);
+    displayRecipes(dataVegan, lenght, food);
 }
 
 getApiDataChicken();
