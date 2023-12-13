@@ -10,7 +10,7 @@
 
 
 let type = '';
-const apiKey = '90cc90ac2d314d10b1f9d3cf850cd540';
+const apiKey = '0461f9f6ce4c4b5297e8c6394e5309fa';
 const apiUrl_one = 'https://api.spoonacular.com/recipes/complexSearch';
     
 async function getApiData(type) {
@@ -35,7 +35,7 @@ function displayRecipes(data, lenght, type) {
     let container = document.getElementById(type);
     console.log(data);
 
-    while (index < 3) {
+    while (index < 6) {
         //getting random position 
         let number = Math.random() * (lenght-1);
         let numberRound = Math.round(number);

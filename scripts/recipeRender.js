@@ -4,15 +4,15 @@
 // 320786665a194e83b2a064d5eab24ea6 (gmail key)
 // efefa91814cb4d3a92ea12c310f20072 (gui)
 // 90cc90ac2d314d10b1f9d3cf850cd540 (mafo) 
-// 0461f9f6ce4c4b5297e8c6394e5309fa (mafran) -- using this one
-// 896979189fea41dfa19af91f1e970c01 (sabrine)
+// 0461f9f6ce4c4b5297e8c6394e5309fa (mafran) 
+// 896979189fea41dfa19af91f1e970c01 (sabrine) -- using this one
 // 40a9caa5188547d2a29f1a25a33f0b79 (thomas)
 
 
 document.addEventListener('DOMContentLoaded', function() {
     // Retrieve the id from localStorage
     const selectedRecipeId = localStorage.getItem('selectedRecipeId');
-    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?320786665a194e83b2a064d5eab24ea6`;
+    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?896979189fea41dfa19af91f1e970c01`;
     let recipeData = '';
 
     // Check if the id is present

@@ -8,13 +8,18 @@
 // 896979189fea41dfa19af91f1e970c01 (sabrine)
 // 40a9caa5188547d2a29f1a25a33f0b79 (thomas)
 
-const APIkey = 'd1f70067f78248078e71a58983a18e5f';
+const APIkey_one = 'd1f70067f78248078e71a58983a18e5f';
+const APIkey_two = 'db254b5cd61744d39a2deebd9c361444';
+const APIey_three = 'ebbf86dcedb34f56b0926b2a5bfd0541';
+const APIkey_four = '320786665a194e83b2a064d5eab24ea6';
+const APIkey_five = 'efefa91814cb4d3a92ea12c310f20072';
 
-const linksURLChicken = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=chicken&type=main course&number=500`;
-const linksURLBeef = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=beef&type=main course&number=500`;
-const linksURLPork = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=pork&type=main course&number=500`;
-const linksURLFish = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=fish&type=main course&number=500`;
-const linksURLVegan = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&query=vegan&type=main course&number=500`;
+
+const linksURLChicken = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey_one}&query=chicken&type=main course&number=500`;
+const linksURLBeef = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey_two}&query=beef&type=main course&number=500`;
+const linksURLPork = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey_three}&query=pork&type=main course&number=500`;
+const linksURLFish = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey_four}&query=fish&type=main course&number=500`;
+const linksURLVegan = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey_five}&query=vegan&type=main course&number=500`;
 
 let dataChicken = '';
 let dataBeef = '';
