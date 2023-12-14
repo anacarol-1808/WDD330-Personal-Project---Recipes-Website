@@ -35,7 +35,7 @@ function displayRecipes(data, lenght, type) {
     let container = document.getElementById(type);
     console.log(data);
 
-    while (index < 6) {
+    while (index < 8) {
         //getting random position 
         let number = Math.random() * (lenght-1);
         let numberRound = Math.round(number);

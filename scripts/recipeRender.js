@@ -12,7 +12,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Retrieve the id from localStorage
     const selectedRecipeId = localStorage.getItem('selectedRecipeId');
-    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?896979189fea41dfa19af91f1e970c01`;
+    const baseURL = `https://api.spoonacular.com/recipes/${selectedRecipeId}/information?apiKey=896979189fea41dfa19af91f1e970c01`;
     let recipeData = '';
 
     // Check if the id is present

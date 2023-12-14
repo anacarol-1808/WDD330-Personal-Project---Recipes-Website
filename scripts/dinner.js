@@ -10,7 +10,7 @@
 
 const APIkey_one = 'd1f70067f78248078e71a58983a18e5f';
 const APIkey_two = 'db254b5cd61744d39a2deebd9c361444';
-const APIey_three = 'ebbf86dcedb34f56b0926b2a5bfd0541';
+const APIkey_three = 'ebbf86dcedb34f56b0926b2a5bfd0541';
 const APIkey_four = '320786665a194e83b2a064d5eab24ea6';
 const APIkey_five = 'efefa91814cb4d3a92ea12c310f20072';
 
